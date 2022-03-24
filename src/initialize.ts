@@ -56,7 +56,7 @@ const createOnSyncCallback = (config: GoogleAnalyticsInitializeOptions) => {
         // Measurement protocol requests can set their payload parameters in
         // either the URL query string (for GET requests) or the POST body.
         const params =
-          request.method === 'POST'
+          request.method === 'POST' && request.bodyUsed
             ? new URLSearchParams(await request.clone().text())
             : url.searchParams;
 
